@@ -28,6 +28,17 @@ Backendless.UserService.register( user ).then( res => {
 
   }
 
+  function login (e) {
+    e.preventDefault()
+    
+    Backendless.UserService.login( email, password, true )
+ .then( res => {
+  console.log("user logged in");
+ } )
+ .catch( err => console.log(err) );
+
+  }
+
   return (
     <div className='h-screen'>
       <Navbar />
@@ -44,9 +55,9 @@ Backendless.UserService.register( user ).then( res => {
         </div>
         <div className="divider divider-primary text-text">OR</div>
         <div className="grid h-1/2 card bg-primary rounded-box place-items-center">
-        <form className='flex flex-col gap-6 form'>
-            <input required placeholder='Your email' type="email" name="email" />
-            <input required placeholder='Your password' type="password" name="password" />
+        <form onSubmit={(e) =>{login(e)}} className='flex flex-col gap-6 form'>
+            <input onChange={(e) => setemail(e.target.value)} required placeholder='Your email' type="email" name="email" />
+            <input onChange={(e) => setpassword(e.target.value)} required placeholder='Your password' type="password" name="password" />
 
             <button className='btn text-lg bg-secondary text-text border-none' type='submit'>Login</button>
           </form>
