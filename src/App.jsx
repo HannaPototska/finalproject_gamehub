@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import CreatePost from './components/CreatePost';
@@ -13,6 +13,7 @@ function App() {
    
 
     <Routes>
+      
       <Route path='/' element={<Home />} />
       <Route path='/community' element={<Community />} />
       <Route path='/register' element={<Register />} />
