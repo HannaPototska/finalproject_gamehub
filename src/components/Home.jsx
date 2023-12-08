@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Home() {
   return (
     <div>
-      <div className="fixed">
+      <div className='nav'>
 
       <Navbar />
       </div>
