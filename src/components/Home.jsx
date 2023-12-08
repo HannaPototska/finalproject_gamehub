@@ -5,7 +5,10 @@ function Home() {
   return (
     <div>
       <Navbar />
-      Home</div>
+      <div className='w-screen h-screen'>Home</div>
+      
+      <Footer />
+      </div>
   )
 }
 
