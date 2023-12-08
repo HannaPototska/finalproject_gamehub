@@ -9,7 +9,7 @@ import Register from './components/Register';
 
 function App() {
   return (
-    <div className="App bg-background w-screen h-screen">
+    <div className="App">
    
 
     <Routes>
