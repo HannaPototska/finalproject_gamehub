@@ -4,8 +4,13 @@ import Footer from '../layout/Footer'
 function Home() {
   return (
     <div>
+      <div className="fixed">
+
       <Navbar />
-      <div className='w-screen h-screen'>Home</div>
+      </div>
+      <div className='w-screen h-screen bg-background text-text pt-24 text-center main'>
+        
+        </div>
       
       <Footer />
       </div>

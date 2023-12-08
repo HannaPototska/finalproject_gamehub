@@ -5,7 +5,7 @@ import logo from "../logo-gamehub.png";
 function Navbar() {
   return (
    
-      <div className="navbar bg-background text-text flex gap-6">
+      <div className="navbar bg-background text-text flex gap-10">
   <div className="navbar-start flex flex-col">
   <a> <img className='w-12' src={logo} alt="logo" /> </a>
     <a className="text-secondary text-2xl">GameHub</a>

@@ -16,3 +16,9 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.main {
+    background-image: url("https://e0.pxfuel.com/wallpapers/523/41/desktop-wallpaper-cyber-futuristic-background-cool-cyber-thumbnail.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
