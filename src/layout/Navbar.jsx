@@ -14,7 +14,7 @@ function Navbar() {
     <a className="btn btn-ghost text-xl">Community</a>
   </div>
   <div className="navbar-end">
-    <a className="btn bg-primary text-text border-none">Login</a>
+    <a className="btn bg-primary text-text border-none text-lg">Login</a>
   </div>
 </div>
    
