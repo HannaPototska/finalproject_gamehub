@@ -8,7 +8,9 @@ function Navbar() {
    
       <div className="navbar bg-background text-text flex gap-10">
   <div className="navbar-start flex flex-col">
-  <a> <img className='w-12' src={logo} alt="logo" /> </a>
+  <Link to={"/"}>
+  <img className='w-12' src={logo} alt="logo" /> 
+  </Link> 
    <Link to={"/"}>
    <a className="text-secondary text-2xl">GameHub</a>
    </Link> 

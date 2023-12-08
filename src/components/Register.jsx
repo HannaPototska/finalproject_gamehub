@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
+import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -9,6 +11,8 @@ function Register() {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [nickname, setnickname] = useState("")
+
+  const navigate = useNavigate()
 
   Backendless.serverURL = "https://eu-api.backendless.com"
   Backendless.initApp(process.env.REACT_APP_APP_ID, process.env.REACT_APP_API_KEY );
@@ -23,6 +27,8 @@ function Register() {
 
 Backendless.UserService.register( user ).then( res => {
   console.log("user registered");
+  navigate("/profile")
+
 } ).catch(err => console.log(err) );
 
 
@@ -34,6 +40,7 @@ Backendless.UserService.register( user ).then( res => {
     Backendless.UserService.login( email, password, true )
  .then( res => {
   console.log("user logged in");
+  navigate("/profile")
  } )
  .catch( err => console.log(err) );
 
