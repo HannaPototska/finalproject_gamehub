@@ -40,7 +40,7 @@ function GamePosts({ selectedGame, tutorials, settutorials }) {
     <div>
       <Navbar />
 
-      <main className="h-screen bg-background text-text text-center flex flex-col items-center gap-3">
+      <main className="h-screen bg-background text-text text-center flex flex-col items-center gap-3 overflow-auto">
         {selectedGame && (
           <div className="flex flex-col">
             <h1 className="text-2xl">{selectedGame.title}</h1>
@@ -62,10 +62,10 @@ function GamePosts({ selectedGame, tutorials, settutorials }) {
             >
               <div className="flex">
                 <div className="flex flex-col">
-                  <img className='w-11 h-11 rounded-full' src= {user.length > 0 &&
+                  <img className='w-11 h-11 rounded-full' src= {user &&
                       user.find((u) => u.objectId == i.ownerId).profileImg} alt="userimage" />
                   <p className="text-center">
-                    {user.length > 0 &&
+                    {user&&
                       user.find((u) => u.objectId == i.ownerId).nickname}
                   </p>
                 </div>
