@@ -14,6 +14,7 @@ import Backendless from 'backendless';
 
 function App() {
   const [games, setgames] = useState([])
+  const [tutorials, settutorials] = useState([])
   const [selectedGame, setselectedGame] = useState()
 
   Backendless.serverURL = "https://eu-api.backendless.com"
@@ -31,7 +32,7 @@ function App() {
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/createpost' element={<CreatePost />} />
-      <Route path='/posts' element={<GamePosts selectedGame={selectedGame}/>} />
+      <Route path='/posts' element={<GamePosts tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame}/>} />
 
 
     </Routes>

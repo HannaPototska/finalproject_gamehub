@@ -42,7 +42,7 @@ function clickHandler(i) {
         {i.title}
         </h3>
 
-          <img onClick={() => clickHandler(i)} className='h-36 w-26' src={i.thumbnail} alt="" />
+          <img onClick={() => clickHandler(i)} className='h-36 w-26 cursor-pointer' src={i.thumbnail} alt="" />
 
         </div>
 
