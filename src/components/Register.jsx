@@ -14,8 +14,7 @@ function Register() {
 
   const navigate = useNavigate()
 
-  Backendless.serverURL = "https://eu-api.backendless.com"
-  Backendless.initApp(process.env.REACT_APP_APP_ID, process.env.REACT_APP_API_KEY );
+  
 
   function register (e) {
     e.preventDefault()

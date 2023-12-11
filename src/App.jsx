@@ -7,11 +7,17 @@ import Profile from './components/Profile';
 import Register from './components/Register';
 import GamePosts from './components/GamePosts';
 import { useState } from 'react';
+import Backendless from 'backendless';
+
+
 
 
 function App() {
   const [games, setgames] = useState([])
-  const [posts, setposts] = useState([])
+  const [selectedGame, setselectedGame] = useState()
+
+  Backendless.serverURL = "https://eu-api.backendless.com"
+  Backendless.initApp(process.env.REACT_APP_APP_ID, process.env.REACT_APP_API_KEY );
 
 
   return (
@@ -21,11 +27,11 @@ function App() {
     <Routes>
       
       <Route path='/' element={<Home />} />
-      <Route path='/community' element={<Community games={games} setgames={setgames} setposts={setposts} />} />
+      <Route path='/community' element={<Community games={games} setgames={setgames} setselectedGame={setselectedGame} />} />
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/createpost' element={<CreatePost />} />
-      <Route path='/posts' element={<GamePosts posts={posts}/>} />
+      <Route path='/posts' element={<GamePosts selectedGame={selectedGame}/>} />
 
 
     </Routes>

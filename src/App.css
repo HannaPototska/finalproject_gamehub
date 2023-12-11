@@ -45,3 +45,19 @@ body {
 .form .btn {
     box-shadow: 0px 3px 10px #00060c;
 }
+
+.post_container {
+    width: 90%;
+    height: 20%;
+    border: solid 1px #00d7c0;
+    border-radius: 8%;
+
+}
+
+.content {
+    overflow:hidden;
+  display:block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}

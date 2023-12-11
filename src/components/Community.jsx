@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-function Community({setposts, games, setgames}) {
+function Community({setselectedGame, games, setgames}) {
   
   const navigate = useNavigate()
 
@@ -23,8 +23,7 @@ function Community({setposts, games, setgames}) {
  
 
 function clickHandler(i) {
-  setposts(i)
-  console.log(i);
+  setselectedGame(i)
   navigate("/posts")
 
 }
