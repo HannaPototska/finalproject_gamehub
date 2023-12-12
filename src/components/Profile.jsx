@@ -45,10 +45,10 @@ function Profile() {
 
 
   return (
-    <div>
+    <div className='h-screen'>
       <NavLogged currentUser={currentUser} setcurrentUser={setcurrentUser} />
       
-     <main className='h-screen bg-background text-text flex flex-col items-center gap-3 overflow-auto'>{currentUser &&
+     <main className='h-5/6 bg-background text-text flex flex-col items-center gap-3 overflow-auto'>{currentUser &&
       <div className='flex flex-col items-center gap-1'>
       <img className='w-56 rounded-full border-2 border-secondary' src={currentUser.profileImg} alt="profile image" />
       <h1 className='text-4xl nick'>{currentUser.nickname}</h1>

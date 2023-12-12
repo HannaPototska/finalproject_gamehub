@@ -33,7 +33,7 @@ function clickHandler(i) {
     <div className='h-screen '>
       <Navbar />
 
-      <main className='h-fit h-screen bg-background'>
+      <main className='h-fit bg-background'>
       
       {games && games.map((i,j) => <div key={j} className='text-text flex flex-col items-center text-center gap-1'> 
         <div>

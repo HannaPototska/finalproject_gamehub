@@ -4,12 +4,12 @@ import Footer from '../layout/Footer'
 import { Link } from 'react-router-dom'
 function Home() {
   return (
-    <div>
+    <div className='h-screen'>
       <div className='nav'>
 
       <Navbar />
       </div>
-      <div className='w-screen h-screen bg-background text-text pt-24 text-center main flex flex-col justify-around gap-12 items-center'>
+      <div className='w-screen h-5/6 bg-background text-text pt-24 text-center main flex flex-col justify-around gap-12 items-center'>
         <h2 className='font-bold text-xl'>Bring your gaming to the <span className='text-accent'>next</span> level</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quasi nulla et omnis voluptatibus eos vel, numquam libero iusto facere voluptate recusandae? Dolorem, maxime. Facere accusamus autem odit cum accusantium.</p>
         <Link to={"/community"}>
