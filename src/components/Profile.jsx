@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import NavLogged from '../layout/NavLogged'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
+import { useNavigate } from 'react-router-dom'
 
 
 function Profile() {
   const [currentUser, setcurrentUser] = useState()
   const [userTut, setuserTut] = useState()
+  const navigate = useNavigate()
 
   useEffect(() => {
       Backendless.UserService.getCurrentUser()
@@ -29,6 +31,16 @@ function Profile() {
       })
   }, [])
 
+  function logoutUser()
+{
+  Backendless.UserService.logout()
+   .then( res => {console.log(res);
+    navigate("/")
+  } 
+   )
+   .catch( err => console.log(err) ) 
+}
+
 
 
 
@@ -44,7 +56,7 @@ function Profile() {
       <div className="divider divider-primary self-center w-32"></div>
       <h2 className='text-4xl'>Your Posts:</h2>
 
-      {userTut && userTut.map(i => <div className=' w-96  border-2 rounded-lg border-primary p-3'>
+      {userTut && userTut.map((i,j) => <div key={j} className=' w-96  border-2 rounded-lg border-primary p-3'>
         <div className='flex'>
         <img className='w-16 h-16 rounded-full object-cover' src={i.picture} alt="" />
         <h1>{i.title}</h1>
@@ -52,6 +64,7 @@ function Profile() {
         <p className='content'>{i.content}</p>
       </div>)}
       
+      <button onClick={logoutUser} className='btn text-text text-lg bg-accent border-none'>Logout</button>
       </main>
       
       <Footer />
