@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from "../logo-gamehub.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 function Navbar() {
+const navigate = useNavigate()
+
+
+
   return (
    
       <div className="navbar bg-background text-text flex gap-10">

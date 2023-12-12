@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
@@ -11,10 +11,19 @@ function Register() {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [nickname, setnickname] = useState("")
+  const [logged, setlogged] = useState()
+
 
   const navigate = useNavigate()
 
-  
+//   useEffect(() => {
+//     Backendless.UserService.isValidLogin()
+//  .then(res => {
+//   console.log(res);
+//   setlogged(res)
+//  })
+//  .catch( err => console.log(err) );
+//   }, [])
 
   function register (e) {
     e.preventDefault()

@@ -4,23 +4,22 @@ import Footer from '../layout/Footer'
 import Backendless from 'backendless'
 
 
-function Profile({tutorials}) {
+function Profile() {
   const [currentUser, setcurrentUser] = useState()
+  const [userTut, setuserTut] = useState()
 
   useEffect(() => {
       Backendless.UserService.getCurrentUser()
       .then(currentUser => {
-        // console.log(currentUser);
         setcurrentUser(currentUser)
-        var onwerid 
-        var whereClause = `ownerId = ` +  currentUser.objectId ;
-        console.log(whereClause);
-        var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause( "ownerId = '17C07E08-1F31-AA19-FF3E-C48E1FCC7500'");
-        // Backendless.Data.of("tutorials").find({ownerId: currentUser.objectId})
+        var id = currentUser.objectId
+        var where = "ownerId = '" + id + "'";
+        var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(where);
         
-        Backendless.Data.of( "tutorials" ).find( {ownerId: currentUser.objectId} )
+        
+        Backendless.Data.of( "tutorials" ).find(queryBuilder )
          .then( (res)=>{
-        console.log(res);
+        setuserTut(res)
          })
          .catch( (err)=> console.log(err.code));
            
@@ -30,24 +29,6 @@ function Profile({tutorials}) {
       })
   }, [])
 
-  useEffect(() => {
-    // console.log(currentUser.objectId);
-//     var whereClause = `ownerId = ${currentUser.objectId }`;
-// var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause( whereClause );
-
-// Backendless.Data.of( "tutorials" ).find( queryBuilder )
-//  .then( (res)=>{
-// console.log(res);
-//  })
-//  .catch( (err)=> console.log(err.code));
-//     Backendless.Data.of( "tutorials" ).findById( currentUser && currentUser.objectId == tutorials.find(i => i.ownerId))
-//  .then( res => {
-//     console.log(res);
-//   })
-//  .catch(err => {
-//   console.log(err);
-//   });
-  }, [])
 
 
 
@@ -55,11 +36,21 @@ function Profile({tutorials}) {
     <div>
       <NavLogged currentUser={currentUser} setcurrentUser={setcurrentUser} />
       
-     <main className='h-screen bg-background text-text'>{currentUser &&
+     <main className='h-screen bg-background text-text flex flex-col items-center gap-3'>{currentUser &&
       <div className='flex flex-col items-center gap-1'>
-      <img className='w-56 rounded-full border border-secondary' src={currentUser.profileImg} alt="profile image" />
+      <img className='w-56 rounded-full border-2 border-secondary' src={currentUser.profileImg} alt="profile image" />
       <h1 className='text-4xl nick'>{currentUser.nickname}</h1>
       </div>}
+      <div className="divider divider-primary self-center w-32"></div>
+      <h2 className='text-4xl'>Your Posts:</h2>
+
+      {userTut && userTut.map(i => <div className=' w-96  border-2 rounded-lg border-primary p-3'>
+        <div className='flex'>
+        <img className='w-16 h-16 rounded-full object-cover' src={i.picture} alt="" />
+        <h1>{i.title}</h1>
+        </div>
+        <p className='content'>{i.content}</p>
+      </div>)}
       
       </main>
       
