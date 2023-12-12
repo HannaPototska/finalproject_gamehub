@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import logo from "../logo-gamehub.png";
 import { Link } from 'react-router-dom'
 

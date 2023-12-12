@@ -31,7 +31,7 @@ function App() {
       <Route path='/' element={<Home />} />
       <Route path='/community' element={<Community games={games} setgames={setgames} setselectedGame={setselectedGame} />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/profile' element={<Profile />} />
+      <Route path='/profile' element={<Profile tutorials={tutorials} />} />
       <Route path='/createpost' element={<CreatePost />} />
       <Route path='/posts' element={<GamePosts tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame}/>} />
 
