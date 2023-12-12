@@ -1,22 +1,11 @@
-import Backendless from 'backendless'
 import React, { useEffect, useState } from 'react'
 import logo from "../logo-gamehub.png";
 import { Link } from 'react-router-dom'
 
 
 
-function NavLogged() {
-    const [currentUser, setcurrentUser] = useState()
-    useEffect(() => {
-        Backendless.UserService.getCurrentUser()
-        .then(currentUser => {
-          console.log(currentUser)
-          setcurrentUser(currentUser)
-        })
-        .catch(error => {
-          console.error(error)
-        })
-    }, [])
+function NavLogged({currentUser}) {
+   
     
   return (
     <div className="navbar bg-background text-text flex gap-10">
