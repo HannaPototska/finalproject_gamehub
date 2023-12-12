@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import NavLogged from '../layout/NavLogged'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function Profile() {
@@ -48,13 +48,17 @@ function Profile() {
     <div>
       <NavLogged currentUser={currentUser} setcurrentUser={setcurrentUser} />
       
-     <main className='h-screen bg-background text-text flex flex-col items-center gap-3'>{currentUser &&
+     <main className='h-screen bg-background text-text flex flex-col items-center gap-3 overflow-auto'>{currentUser &&
       <div className='flex flex-col items-center gap-1'>
       <img className='w-56 rounded-full border-2 border-secondary' src={currentUser.profileImg} alt="profile image" />
       <h1 className='text-4xl nick'>{currentUser.nickname}</h1>
       </div>}
       <div className="divider divider-primary self-center w-32"></div>
+
+
       <h2 className='text-4xl'>Your Posts:</h2>
+      <Link to={"/createpost"}> <button className='btn border-none bg-accent text-text text-lg relative left-36'>New +</button> </Link>
+
 
       {userTut && userTut.map((i,j) => <div key={j} className=' w-96  border-2 rounded-lg border-primary p-3'>
         <div className='flex'>
