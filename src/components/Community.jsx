@@ -12,13 +12,7 @@ function Community({setselectedGame, games, setgames}) {
   const navigate = useNavigate()
 
 
-  useEffect(() => {
-    axios("https://www.freetogame.com/api/games").then(res => 
-    {
-    setgames(i => res.data)
-    })
-  .catch(err => console.log(err))
-  }, [])
+
 
  
 

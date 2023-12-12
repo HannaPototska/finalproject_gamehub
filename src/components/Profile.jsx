@@ -5,8 +5,7 @@ import Backendless from 'backendless'
 import { Link, useNavigate } from 'react-router-dom'
 
 
-function Profile() {
-  const [currentUser, setcurrentUser] = useState()
+function Profile ({currentUser, setcurrentUser}) {
   const [userTut, setuserTut] = useState()
   const navigate = useNavigate()
 
