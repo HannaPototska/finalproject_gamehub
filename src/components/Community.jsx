@@ -11,11 +11,6 @@ function Community({setselectedGame, games, setgames}) {
   
   const navigate = useNavigate()
 
-
-
-
- 
-
 function clickHandler(i) {
   setselectedGame(i)
   navigate("/posts")

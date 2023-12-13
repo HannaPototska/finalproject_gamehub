@@ -4,7 +4,8 @@ import Footer from "../layout/Footer";
 import Backendless from "backendless";
 
 function GamePosts({ selectedGame, tutorials, settutorials }) {
-  const [user, setuser] = useState(); // user is arraz of all users
+  const [user, setuser] = useState(); 
+  console.log(selectedGame);
 
   useEffect(() => {
     Backendless.Data.of("Users")
@@ -19,22 +20,20 @@ function GamePosts({ selectedGame, tutorials, settutorials }) {
   }, []);
 
   useEffect(() => {
+    const title = selectedGame.title
+    const where = "game = '" + title + "'";
+    var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(where);
     Backendless.Data.of("tutorials")
-      .find()
+      .find(queryBuilder)
       .then((res) => {
         settutorials(res);
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-//   const n = user.filter((u) => {
-//     console.log(tutorials[0]);
-//     return u.objectId == tutorials[0].userID;
-//   });
-//   console.log(tutorials[0]);
-//   console.log(n);
 
   return (
     <div>
