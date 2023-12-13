@@ -9,6 +9,7 @@ import GamePosts from './components/GamePosts';
 import { useEffect, useState } from 'react';
 import Backendless from 'backendless';
 import axios from 'axios';
+import SinglePost from './components/SinglePost';
 
 
 
@@ -18,6 +19,7 @@ function App() {
   const [tutorials, settutorials] = useState([])
   const [selectedGame, setselectedGame] = useState()
   const [currentUser, setcurrentUser] = useState()
+  const [selectedPost, setselectedPost] = useState()
 
   useEffect(() => {
     axios("https://www.freetogame.com/api/games").then(res => 
@@ -44,7 +46,9 @@ function App() {
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<Profile currentUser={currentUser} setcurrentUser={setcurrentUser} />} />
       <Route path='/createpost' element={<CreatePost currentUser={currentUser} setcurrentUser={setcurrentUser} games={games} />} />
-      <Route path='/posts' element={<GamePosts tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame}/>} />
+      <Route path='/posts' element={<GamePosts tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame} setselectedPost={setselectedPost} />} />
+      <Route path='/singlepost' element={<SinglePost selectedPost={selectedPost} />} />
+
 
 
     </Routes>

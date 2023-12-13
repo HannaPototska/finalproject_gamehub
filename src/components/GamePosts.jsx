@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import Backendless from "backendless";
+import { useNavigate } from "react-router-dom";
 
-function GamePosts({ selectedGame, tutorials, settutorials }) {
+function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
   const [user, setuser] = useState(); 
-  console.log(selectedGame);
+  const navigate = useNavigate()
 
   useEffect(() => {
     Backendless.Data.of("Users")
       .find()
       .then((res) => {
-        console.log(res);
+        
         setuser(res);
       })
       .catch((err) => {
@@ -33,6 +34,12 @@ function GamePosts({ selectedGame, tutorials, settutorials }) {
         console.log(err);
       });
   }, []);
+
+  function clickHandler(i) {
+    setselectedPost(i)
+    navigate("/singlepost")
+  
+  }
 
 
   return (
@@ -75,7 +82,7 @@ function GamePosts({ selectedGame, tutorials, settutorials }) {
 
               <p className="content m-3">{i.content}</p>
 
-              <button className="btn w-20 bg-accent text-[16px] text-text border-none cursor-pointer self-end">
+              <button onClick={() => clickHandler(i)} className="btn w-20 bg-accent text-[16px] text-text border-none cursor-pointer self-end">
                 View Tutorial
               </button>
             </div>
