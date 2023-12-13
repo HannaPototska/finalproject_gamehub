@@ -20,6 +20,10 @@ function App() {
   const [selectedGame, setselectedGame] = useState()
   const [currentUser, setcurrentUser] = useState()
   const [selectedPost, setselectedPost] = useState()
+  const [logged, setlogged] = useState(false)
+
+
+
 
   useEffect(() => {
     axios("https://www.freetogame.com/api/games").then(res => 
@@ -44,10 +48,10 @@ function App() {
       <Route path='/' element={<Home />} />
       <Route path='/community' element={<Community games={games} setgames={setgames} setselectedGame={setselectedGame} />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/profile' element={<Profile currentUser={currentUser} setcurrentUser={setcurrentUser} />} />
+      <Route path='/profile' element={<Profile currentUser={currentUser} setcurrentUser={setcurrentUser} setlogged={setlogged} />} />
       <Route path='/createpost' element={<CreatePost currentUser={currentUser} setcurrentUser={setcurrentUser} games={games} />} />
       <Route path='/posts' element={<GamePosts tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame} setselectedPost={setselectedPost} />} />
-      <Route path='/singlepost' element={<SinglePost selectedPost={selectedPost} currentUser={currentUser} />} />
+      <Route path='/singlepost' element={<SinglePost selectedPost={selectedPost} currentUser={currentUser} logged={logged} />} />
 
 
 

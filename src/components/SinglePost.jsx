@@ -4,14 +4,16 @@ import Footer from '../layout/Footer'
 import Backendless from 'backendless'
 
 
-function SinglePost({selectedPost, currentUser}) {
+function SinglePost({selectedPost, currentUser, logged}) {
 
     const [tutUser, settutUser] = useState()
+    const [comments, setcomments] = useState()
+    const [commenter, setcommenter] = useState()
 
     useEffect(() => {
         Backendless.Data.of( "Users" ).findById(selectedPost.ownerId)
  .then(res => {
-    console.log(res);
+    // console.log(res);
     settutUser(res)
   })
  .catch( err => {
@@ -19,6 +21,27 @@ function SinglePost({selectedPost, currentUser}) {
   });
     }, [])
 
+
+
+
+useEffect(() => {
+    const postID = selectedPost.objectId
+    const where = "postID = '" + postID + "'";
+    var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(where);
+    queryBuilder.addRelated(['userid'])
+    Backendless.Data.of("comments")
+      .find(queryBuilder)
+      .then((res) => {
+        setcomments(res)
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
+  
 
   return (
     <div className='h-screen'>
@@ -42,6 +65,18 @@ function SinglePost({selectedPost, currentUser}) {
             </div>
 
             </div>}
+
+
+            <p className='text-xl text-center'>Comments:</p>
+            { comments && <div className='flex flex-col gap-3'>{comments.map((i,j) => <div key={j} className='flex items-center gap-6'>
+               <div>
+               <img className='w-20 rounded-full' src={i.userid.profileImg} alt="" />
+               <p> {i.userid.nickname}</p>
+               </div>
+                <p>{i.content}</p>
+                </div>)}</div>}
+
+            {logged && logged? <p>hi</p>: <p>bye</p>}
         </main>
 
 

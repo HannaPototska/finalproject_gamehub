@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import NavLogged from '../layout/NavLogged'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
 import { Link, useNavigate } from 'react-router-dom'
+import Navbar from '../layout/Navbar'
 
 
 function Profile ({currentUser, setcurrentUser}) {
@@ -45,7 +45,7 @@ function Profile ({currentUser, setcurrentUser}) {
 
   return (
     <div className='h-screen'>
-      <NavLogged currentUser={currentUser} setcurrentUser={setcurrentUser} />
+      <Navbar currentUser={currentUser} setcurrentUser={setcurrentUser} />
       
      <main className='h-5/6 bg-background text-text flex flex-col items-center gap-3 overflow-auto'>{currentUser &&
       <div className='flex flex-col items-center gap-1'>

@@ -28,7 +28,7 @@ const navigate = useNavigate()
   <div className="navbar-end">
   <Link to={"/register"}>
 
-    {currentUser == true? <div><img className='rounded-full' src={currentUser && currentUser.profileImg} alt="" /></div> :   <p className="btn bg-primary text-text border-none text-lg">Login</p>}
+    {currentUser? <div><img className='rounded-full' src={currentUser && currentUser.profileImg} alt="" /></div> :   <p className="btn bg-primary text-text border-none text-lg">Login</p>}
    
   </Link>
   </div>

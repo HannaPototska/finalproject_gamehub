@@ -1,8 +1,8 @@
 import React from 'react'
-import NavLogged from '../layout/NavLogged'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../layout/Navbar'
 
 
 function CreatePost({currentUser, setcurrentUser,games}) {
@@ -37,7 +37,7 @@ function CreatePost({currentUser, setcurrentUser,games}) {
 
   return (
     <div className='h-screen '>
-      <NavLogged currentUser={currentUser} setcurrentUser={setcurrentUser} />
+      <Navbar currentUser={currentUser} setcurrentUser={setcurrentUser} />
 
       <main className='h-5/6 bg-background flex flex-col items-center'>
 

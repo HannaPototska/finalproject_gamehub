@@ -7,23 +7,23 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-function Register() {
+function Register({setlogged}) {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [nickname, setnickname] = useState("")
-  const [logged, setlogged] = useState()
+
 
 
   const navigate = useNavigate()
 
-//   useEffect(() => {
-//     Backendless.UserService.isValidLogin()
-//  .then(res => {
-//   console.log(res);
-//   setlogged(res)
-//  })
-//  .catch( err => console.log(err) );
-//   }, [])
+  useEffect(() => {
+    Backendless.UserService.isValidLogin()
+ .then(res => {
+  console.log(res);
+  setlogged(i => res)
+ })
+ .catch( err => console.log(err) );
+  }, [])
 
   function register (e) {
     e.preventDefault()
@@ -35,6 +35,7 @@ function Register() {
 
 Backendless.UserService.register( user ).then( res => {
   console.log("user registered");
+  setlogged(i => true)
   navigate("/profile")
 
 } ).catch(err => console.log(err) );
@@ -48,6 +49,7 @@ Backendless.UserService.register( user ).then( res => {
     Backendless.UserService.login( email, password, true )
  .then( res => {
   console.log("user logged in");
+  setlogged(true)
   navigate("/profile")
  } )
  .catch( err => console.log(err) );
