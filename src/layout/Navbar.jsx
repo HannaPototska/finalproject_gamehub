@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 
-function Navbar() {
+function Navbar({currentUser}) {
 const navigate = useNavigate()
 
 
@@ -27,7 +27,9 @@ const navigate = useNavigate()
   </div>
   <div className="navbar-end">
   <Link to={"/register"}>
-    <p className="btn bg-primary text-text border-none text-lg">Login</p>
+
+    {currentUser == true? <div><img className='rounded-full' src={currentUser && currentUser.profileImg} alt="" /></div> :   <p className="btn bg-primary text-text border-none text-lg">Login</p>}
+   
   </Link>
   </div>
 </div>

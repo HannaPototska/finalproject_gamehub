@@ -47,7 +47,7 @@ function App() {
       <Route path='/profile' element={<Profile currentUser={currentUser} setcurrentUser={setcurrentUser} />} />
       <Route path='/createpost' element={<CreatePost currentUser={currentUser} setcurrentUser={setcurrentUser} games={games} />} />
       <Route path='/posts' element={<GamePosts tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame} setselectedPost={setselectedPost} />} />
-      <Route path='/singlepost' element={<SinglePost selectedPost={selectedPost} />} />
+      <Route path='/singlepost' element={<SinglePost selectedPost={selectedPost} currentUser={currentUser} />} />
 
 
 

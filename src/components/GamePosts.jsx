@@ -37,6 +37,7 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
 
   function clickHandler(i) {
     setselectedPost(i)
+    console.log(i);
     navigate("/singlepost")
   
   }

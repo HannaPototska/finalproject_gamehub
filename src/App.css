@@ -80,3 +80,7 @@ form textarea {
 select {
     border-radius: 10px;
 }
+
+.shadow {
+    text-shadow: 1px 3px 5px #2b91fa;
+}
