@@ -32,10 +32,10 @@ function Register({currentUser}) {
 
 
 Backendless.UserService.register( user ).then( res => {
-  console.log("user registered");
   navigate("/profile")
 
-} ).catch(err => console.log(err) );
+} ).catch(err => alert("Something went wrong")
+);
 
 
   }
@@ -45,10 +45,10 @@ Backendless.UserService.register( user ).then( res => {
     
     Backendless.UserService.login( email, password, true )
  .then( res => {
-  console.log("user logged in");
   navigate("/profile")
  } )
- .catch( err => console.log(err) );
+ .catch( err =>         alert("Something went wrong")
+ );
 
   }
 

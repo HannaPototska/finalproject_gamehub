@@ -16,7 +16,8 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
         setuser(res);
       })
       .catch((err) => {
-        console.log(err);
+        alert("Something went wrong")
+
       });
   }, []);
 
@@ -28,16 +29,16 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
       .find(queryBuilder)
       .then((res) => {
         settutorials(res);
-        console.log(res);
+        
       })
       .catch((err) => {
-        console.log(err);
+    alert("Something went wrong")
+      
       });
   }, []);
 
   function clickHandler(i) {
     setselectedPost(i)
-    console.log(i);
     navigate("/singlepost")
   
   }

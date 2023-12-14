@@ -21,18 +21,14 @@ function CreatePost({currentUser, setcurrentUser,games}) {
   
   Backendless.Data.of( "tutorials" ).save( tutorial )
     .then( res => {
-        console.log( "new tutorial has been saved" + res);
+      navigate("/profile")
       })
     .catch(err => {
-        console.log( "an error has occurred " + err.message );
+      alert("Something went wrong")
       });
   }
 
-  function clickHandler() {
-    const interval = setInterval(() => {
-      navigate("/profile")
-}, 2000);
-  }
+ 
 
 
   return (
@@ -53,7 +49,7 @@ function CreatePost({currentUser, setcurrentUser,games}) {
             {games && games.map((i,j) =>  <option key={j} value={i.title}>{i.title}</option>)}
            </select>
             <textarea className='p-3' required name="content" placeholder='Text:' id="" cols="40" rows="10"></textarea>
-           <button onClick={clickHandler} type='submit' className='btn border-none text-text bg-accent w-52 text-xl'>Post</button>
+           <button type='submit' className='btn border-none text-text bg-accent w-52 text-xl'>Post</button>
            
           </form>
 

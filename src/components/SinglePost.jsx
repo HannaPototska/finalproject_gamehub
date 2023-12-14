@@ -18,7 +18,7 @@ function SinglePost({selectedPost, currentUser}) {
     settutUser(res)
   })
  .catch( err => {
-    console.log(err);
+    alert("Something went wrong");
   });
     }, [])
 
@@ -37,7 +37,7 @@ useEffect(() => {
        
       })
       .catch((err) => {
-        console.log(err);
+       alert("Something went wrong");
       });
   }, []);
 
@@ -54,10 +54,10 @@ let children = [ childObject ];
 
 Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
   .then(res => {
-    console.log( "relation has been set" );
+   
   })
   .catch( error => {
-    console.log( "server reported an error - " + error.message );
+    alert( "Something went wrong");
   });
 
 
@@ -69,10 +69,10 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
 
   Backendless.Data.of( "comments" ).addRelation( parent, "postID", children )
   .then(res => {
-    console.log( "relation has been set" );
+    
   })
   .catch( error => {
-    console.log( "server reported an error - " + error.message );
+    alert( "Something went wrong" );
   });
     })
 

@@ -25,11 +25,10 @@ function App() {
   useEffect(()=>{
     Backendless.UserService.getCurrentUser()
   .then(currentUser => {
-    console.log(currentUser)
     setcurrentUser(currentUser)
   })
   .catch(error => {
-    console.error(error)
+    alert("Something went wrong")
   })
   },[])
 

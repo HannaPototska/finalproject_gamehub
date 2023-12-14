@@ -22,23 +22,25 @@ function Profile ({currentUser, setcurrentUser}) {
          .then( (res)=>{
         setuserTut(res)
          })
-         .catch( (err)=> console.log(err.code));
+         .catch( (err)=>  alert("Something went wrong")
+         );
            
       })
       .catch(error => {
-        console.error(error)
+        alert("Something went wrong")
       })
   }, [])
 
   function logoutUser()
 {
   Backendless.UserService.logout()
-   .then( res => {console.log(res);
+   .then( res => {
     setcurrentUser(false)
     navigate("/")
   } 
    )
-   .catch( err => console.log(err) ) 
+   .catch( err =>         alert("Something went wrong")
+   ) 
 }
 
 
