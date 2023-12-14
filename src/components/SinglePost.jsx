@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
+import { Link } from 'react-router-dom'
 
 
-function SinglePost({selectedPost, currentUser, logged}) {
+function SinglePost({selectedPost, currentUser}) {
 
     const [tutUser, settutUser] = useState()
     const [comments, setcomments] = useState()
-    const [commenter, setcommenter] = useState()
+    
 
     useEffect(() => {
         Backendless.Data.of( "Users" ).findById(selectedPost.ownerId)
  .then(res => {
-    // console.log(res);
+ 
     settutUser(res)
   })
  .catch( err => {
@@ -33,7 +34,7 @@ useEffect(() => {
       .find(queryBuilder)
       .then((res) => {
         setcomments(res)
-        console.log(res);
+       
       })
       .catch((err) => {
         console.log(err);
@@ -41,8 +42,46 @@ useEffect(() => {
   }, []);
 
 
-  
+  function leaveComment(e) {
+    e.preventDefault()
+    Backendless.Data.of("comments").save({content: e.target.comment.value}).then(res => {
+        console.log(res);
+        let parent = { objectId: res.objectId};
 
+let childObject = { objectId: currentUser && currentUser.objectId  };
+
+let children = [ childObject ];
+
+Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
+  .then(res => {
+    console.log( "relation has been set" );
+  })
+  .catch( error => {
+    console.log( "server reported an error - " + error.message );
+  });
+
+
+  childObject = { objectId: selectedPost && selectedPost.objectId  };
+  
+ 
+
+  children = [ childObject ];
+
+  Backendless.Data.of( "comments" ).addRelation( parent, "postID", children )
+  .then(res => {
+    console.log( "relation has been set" );
+  })
+  .catch( error => {
+    console.log( "server reported an error - " + error.message );
+  });
+    })
+
+    
+
+    .catch(err => console.log(err))
+  }
+
+  
   return (
     <div className='h-screen'>
         <Navbar currentUser={currentUser} />
@@ -72,11 +111,33 @@ useEffect(() => {
                <div>
                <img className='w-20 rounded-full' src={i.userid.profileImg} alt="" />
                <p> {i.userid.nickname}</p>
+               <div className="divider divider-secondary self-center w-32"></div>
+
                </div>
                 <p>{i.content}</p>
-                </div>)}</div>}
+                </div>
+                )}</div>}
 
-            {logged && logged? <p>hi</p>: <p>bye</p>}
+      <div className="divider divider-primary self-center w-32"></div>
+      <p>Leave a comment:</p>
+
+
+
+            {currentUser && currentUser? <div>
+                <img className='w-20 rounded-full' src={currentUser.profileImg} alt="user image" /> 
+                <h1>{currentUser.nickname}</h1>
+                <form className='text-black' onSubmit={leaveComment}>
+                    <input className='text-black' placeholder='Comment:' type="text" name="comment" id="" />
+                    <button type='submit' className='btn'>Submit</button>
+                </form>
+                </div>
+             : <div>
+                <h3>To leave a comment, please log in or register</h3>
+                <Link to={"/register"}><button className='btn'>Login</button></Link>
+                </div>}
+
+            
+
         </main>
 
 
