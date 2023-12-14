@@ -16,7 +16,7 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
         setuser(res);
       })
       .catch((err) => {
-        alert("Something went wrong")
+        alert("Something went wrong"+err.message)
 
       });
   }, []);
@@ -32,7 +32,7 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
         
       })
       .catch((err) => {
-    alert("Something went wrong")
+    alert("Something went wrong"+err.message)
       
       });
   }, []);

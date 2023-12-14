@@ -54,7 +54,7 @@ function App() {
     <Routes>
       
       <Route path='/' element={<Home />} />
-      <Route path='/community' element={<Community games={games} setgames={setgames} setselectedGame={setselectedGame} />} />
+      <Route path='/community' element={<Community games={games} setselectedGame={setselectedGame} />} />
       <Route path='/register' element={<Register currentUser={currentUser} />} />
       <Route path='/profile' element={<Profile currentUser={currentUser} setcurrentUser={setcurrentUser} />} />
       <Route path='/createpost' element={<CreatePost currentUser={currentUser} setcurrentUser={setcurrentUser} games={games} />} />

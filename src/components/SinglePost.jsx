@@ -18,7 +18,7 @@ function SinglePost({selectedPost, currentUser}) {
     settutUser(res)
   })
  .catch( err => {
-    alert("Something went wrong");
+    alert("Something went wrong"+err.message);
   });
     }, [])
 
@@ -37,7 +37,7 @@ useEffect(() => {
        
       })
       .catch((err) => {
-       alert("Something went wrong");
+       alert("Something went wrong" +err.message);
       });
   }, []);
 
@@ -57,7 +57,7 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
    
   })
   .catch( error => {
-    alert( "Something went wrong");
+    alert( "Something went wrong"+error.message);
   });
 
 
@@ -72,7 +72,7 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
     
   })
   .catch( error => {
-    alert( "Something went wrong" );
+    alert( "Something went wrong" +error.message);
   });
     })
 
@@ -89,7 +89,7 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
         <Navbar currentUser={currentUser} />
 
 
-        <main className='h-5/6 bg-background text-text overflow-auto'>
+        <main className='h-5/6 bg-background text-text overflow-auto singlepost_main_container'>
            
         {selectedPost && <div className='flex flex-col'>
             <p className='mx-3'>Author:</p>
@@ -109,7 +109,7 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
 
 
             <p className='text-xl text-center nick'>Comments:</p>
-            { comments && <div className='flex flex-col '>{comments.map((i,j) => <div key={j} className='flex border m-1 px-2 rounded-lg gap-6'>
+            { comments && <div className='flex flex-col container_of_comments '>{comments.map((i,j) => <div key={j} className='flex border m-1 px-2 rounded-lg gap-6 comments_container'>
                <div>
                <img className='w-20 rounded-full' src={i.userid.profileImg} alt="" />
                <p> {i.userid.nickname}</p>
@@ -121,17 +121,17 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
                 )}</div>}
 
       <div className="divider divider-primary mx-auto w-32"></div>
-      <p className='text-lg'>Leave a comment:</p>
+      <p className='text-lg text-center'>Leave a comment:</p>
 
 
 
-            {currentUser && currentUser? <div className='flex'>
+            {currentUser && currentUser? <div className='flex leave_comment_container'>
                 <div className='flex flex-col gap-1 items-center'>
 
                 <img className='w-20 rounded-full' src={currentUser.profileImg} alt="user image" /> 
                 <h1>{currentUser.nickname}</h1>
                 </div>
-                <form className='text-black flex flex-col items-center m-3 gap-2' onSubmit={leaveComment}>
+                <form className='text-black flex flex-col items-center m-3 gap-2 form_container' onSubmit={leaveComment}>
                     <input className='text-black' placeholder='Comment:' type="text" name="comment" id="" />
                     <button type='submit' className='btn bg-primary border-none text-text text-lg'>Submit</button>
                 </form>

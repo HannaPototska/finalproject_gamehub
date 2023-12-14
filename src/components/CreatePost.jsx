@@ -24,7 +24,7 @@ function CreatePost({currentUser, setcurrentUser,games}) {
       navigate("/profile")
       })
     .catch(err => {
-      alert("Something went wrong")
+      alert("Something went wrong"+err.message)
       });
   }
 
@@ -39,7 +39,7 @@ function CreatePost({currentUser, setcurrentUser,games}) {
 
           <h1 className='text-text text-4xl m-3'>Create New Post</h1>
 
-          <form className='flex flex-col items-center gap-6' onSubmit={postTutorial}>
+          <form className='flex flex-col items-center gap-6 createpost_form_container' onSubmit={postTutorial}>
             <input type="text" required placeholder='Title:' name="title" />
             <input type="url" required name="imgURL" placeholder='Image URL' id="" />
             

@@ -34,7 +34,7 @@ function Register({currentUser}) {
 Backendless.UserService.register( user ).then( res => {
   navigate("/profile")
 
-} ).catch(err => alert("Something went wrong")
+} ).catch(err => alert("Something went wrong"+err.message)
 );
 
 
@@ -47,7 +47,7 @@ Backendless.UserService.register( user ).then( res => {
  .then( res => {
   navigate("/profile")
  } )
- .catch( err =>         alert("Something went wrong")
+ .catch( err => alert(err)
  );
 
   }
@@ -57,7 +57,7 @@ Backendless.UserService.register( user ).then( res => {
       <Navbar />
       <div>
       <div className="flex flex-col bg-background w-full h-[571px] border-opacity-50">
-        <div className="grid h-1/2 card bg-primary rounded-box place-items-center">
+        <div className="grid h-1/2 card bg-primary rounded-box place-items-center register_container">
           <form onSubmit={(e) =>{register(e)}} className='flex flex-col gap-6 form'>
             <input onChange={(e) => setnickname(e.target.value)} required placeholder='Your nickname' type="text" name="nickname" />
             <input onChange={(e) => setemail(e.target.value)} required placeholder='Your email' type="email" name="email" />
@@ -67,7 +67,7 @@ Backendless.UserService.register( user ).then( res => {
           </form>
         </div>
         <div className="divider divider-primary text-text">OR</div>
-        <div className="grid h-1/2 card bg-primary rounded-box place-items-center">
+        <div className="grid h-1/2 card bg-primary rounded-box place-items-center register_container">
         <form onSubmit={(e) =>{login(e)}} className='flex flex-col gap-6 form'>
             <input onChange={(e) => setemail(e.target.value)} required placeholder='Your email' type="email" name="email" />
             <input onChange={(e) => setpassword(e.target.value)} required placeholder='Your password' type="password" name="password" />

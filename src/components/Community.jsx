@@ -1,13 +1,11 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
-import Backendless from 'backendless'
 import { useNavigate } from 'react-router-dom'
 
 
 
-function Community({setselectedGame, games, setgames}) {
+function Community({setselectedGame, games}) {
   
   const navigate = useNavigate()
 
@@ -22,7 +20,7 @@ function clickHandler(i) {
     <div className='h-screen '>
       <Navbar />
 
-      <main className='h-fit bg-background'>
+      <main className='h-fit bg-background main_cont'>
       
       {games && games.map((i,j) => <div key={j} className='text-text flex flex-col items-center text-center gap-1'> 
         <div className='flex flex-col'>

@@ -22,7 +22,7 @@ function Profile ({currentUser, setcurrentUser}) {
          .then( (res)=>{
         setuserTut(res)
          })
-         .catch( (err)=>  alert("Something went wrong")
+         .catch( (err)=>  alert("Something went wrong"+err.message)
          );
            
       })
@@ -39,7 +39,7 @@ function Profile ({currentUser, setcurrentUser}) {
     navigate("/")
   } 
    )
-   .catch( err =>         alert("Something went wrong")
+   .catch( err =>  alert("Something went wrong"+err.message)
    ) 
 }
 
@@ -62,9 +62,9 @@ function Profile ({currentUser, setcurrentUser}) {
       <Link to={"/createpost"}> <button className='btn border-none bg-accent text-text text-lg relative left-36'>New +</button> </Link>
 
 
-      {userTut && userTut.map((i,j) => <div key={j} className=' w-96  border-2 rounded-lg border-primary p-3'>
+      {userTut && userTut.map((i,j) => <div key={j} className=' w-96  border-2 rounded-lg border-primary p-3 posts_container'>
         <div className='flex'>
-        <img className='w-16 h-16 rounded-full object-cover' src={i.picture} alt="" />
+        <img className='w-16 h-16 rounded-full object-cover' src={i.picture} alt="post picture" />
         <h1>{i.title}</h1>
         </div>
         <p className='content'>{i.content}</p>
