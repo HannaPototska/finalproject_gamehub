@@ -85,3 +85,10 @@ select {
 .shadow {
     text-shadow: 1px 3px 5px #2b91fa;
 }
+
+.border {
+   
+    border: 2px solid #ff00d3;
+    box-shadow: 1px 1px 5px #4a00ff;
+
+}

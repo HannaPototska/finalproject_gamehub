@@ -106,33 +106,36 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
             </div>}
 
 
-            <p className='text-xl text-center'>Comments:</p>
-            { comments && <div className='flex flex-col gap-3'>{comments.map((i,j) => <div key={j} className='flex items-center gap-6'>
+            <p className='text-xl text-center nick'>Comments:</p>
+            { comments && <div className='flex flex-col '>{comments.map((i,j) => <div key={j} className='flex border m-1 px-2 rounded-lg gap-6'>
                <div>
                <img className='w-20 rounded-full' src={i.userid.profileImg} alt="" />
                <p> {i.userid.nickname}</p>
-               <div className="divider divider-secondary self-center w-32"></div>
 
                </div>
-                <p>{i.content}</p>
+            
+                <p className='text-center relative top-8'>{i.content}</p>
                 </div>
                 )}</div>}
 
-      <div className="divider divider-primary self-center w-32"></div>
-      <p>Leave a comment:</p>
+      <div className="divider divider-primary mx-auto w-32"></div>
+      <p className='text-lg'>Leave a comment:</p>
 
 
 
-            {currentUser && currentUser? <div>
+            {currentUser && currentUser? <div className='flex'>
+                <div className='flex flex-col gap-1 items-center'>
+
                 <img className='w-20 rounded-full' src={currentUser.profileImg} alt="user image" /> 
                 <h1>{currentUser.nickname}</h1>
-                <form className='text-black' onSubmit={leaveComment}>
+                </div>
+                <form className='text-black flex flex-col items-center m-3 gap-2' onSubmit={leaveComment}>
                     <input className='text-black' placeholder='Comment:' type="text" name="comment" id="" />
-                    <button type='submit' className='btn'>Submit</button>
+                    <button type='submit' className='btn bg-primary border-none text-text text-lg'>Submit</button>
                 </form>
                 </div>
              : <div>
-                <h3>To leave a comment, please log in or register</h3>
+                <h3 className='text-lg'>To leave a comment, please log in or register</h3>
                 <Link to={"/register"}><button className='btn'>Login</button></Link>
                 </div>}
 

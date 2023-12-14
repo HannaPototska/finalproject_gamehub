@@ -7,14 +7,19 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-function Register({setlogged}) {
+function Register({currentUser}) {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [nickname, setnickname] = useState("")
 
-
-
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (currentUser !== false ) {
+      navigate("/profile")
+    
+    }
+  }, [])
 
  
 

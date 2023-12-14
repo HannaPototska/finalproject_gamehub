@@ -34,6 +34,7 @@ function Profile ({currentUser, setcurrentUser}) {
 {
   Backendless.UserService.logout()
    .then( res => {console.log(res);
+    setcurrentUser(false)
     navigate("/")
   } 
    )
