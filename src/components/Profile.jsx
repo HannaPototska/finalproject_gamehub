@@ -13,7 +13,7 @@ function Profile ({currentUser, setcurrentUser}) {
       Backendless.UserService.getCurrentUser()
       .then(currentUser => {
         setcurrentUser(currentUser)
-        var id = currentUser.objectId
+        var id =  currentUser && currentUser.objectId
         var where = "ownerId = '" + id + "'";
         var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(where);
         

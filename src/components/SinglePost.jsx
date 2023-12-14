@@ -79,6 +79,8 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
     
 
     .catch(err => console.log(err))
+
+    e.target.comment.value = ""
   }
 
   

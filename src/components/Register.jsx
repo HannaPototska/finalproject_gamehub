@@ -15,7 +15,7 @@ function Register({currentUser}) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (currentUser !== false ) {
+    if (currentUser && currentUser !== false ) {
       navigate("/profile")
     
     }
