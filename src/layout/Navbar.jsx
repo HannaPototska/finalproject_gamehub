@@ -31,7 +31,7 @@ function Navbar({currentUser}) {
   <div className="navbar-end">
   <Link to={"/register"}>
 
-    {currentUser? <div><img className='w-24 rounded-full' src={currentUser && currentUser.profileImg} alt="" /></div> :   <p className="btn bg-primary text-text border-none text-lg margin">Login</p>}
+    {currentUser? <div><img className='w-16 rounded-full' src={currentUser && currentUser.profileImg} alt="" /></div> :   <p className="btn bg-primary text-text border-none text-lg margin">Login</p>}
    
   </Link>
   </div>

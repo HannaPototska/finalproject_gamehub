@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-function Register({currentUser}) {
-  const [email, setemail] = useState("")
-  const [password, setpassword] = useState("")
-  const [nickname, setnickname] = useState("")
+function Login({currentUser,email }) {
+//   const [email, setemail] = useState("")
+//   const [password, setpassword] = useState("")
+//   const [nickname, setnickname] = useState("")
 
   const navigate = useNavigate()
 
@@ -23,53 +23,37 @@ function Register({currentUser}) {
 
  
 
-  function register (e) {
-    e.preventDefault()
-    const user = new Backendless.User();
-    user.email = email
-    user.password = password
-    user.nickname = nickname
-
-
-Backendless.UserService.register( user ).then( res => {
- alert("Your account has been created. Please login")
-
-} ).catch(err => alert("Something went wrong"+err.message)
-);
-
 
   }
 
   function login (e) {
     e.preventDefault()
     
-    Backendless.UserService.login( email, password, true )
+    Backendless.UserService.login(email, password, true )
  .then( res => {
   navigate("/profile")
  } )
  .catch( err => alert(err)
  );
 
-  }
+  
 
-  return (
+return (
     <div className='h-screen'>
       <Navbar />
       <div>
       <div className="flex flex-col bg-background w-full h-[768px] border-opacity-50">
         <div className="grid h-1/2 card bg-primary rounded-box place-items-center register_container">
-          <h1 className='text-4xl text-text'>Register</h1>
-          <form onSubmit={(e) =>{register(e)}} className='flex flex-col gap-6 form'>
+          {/* <form onSubmit={(e) =>{register(e)}} className='flex flex-col gap-6 form'>
             <input onChange={(e) => setnickname(e.target.value)} required placeholder='Your nickname' type="text" name="nickname" />
             <input onChange={(e) => setemail(e.target.value)} required placeholder='Your email' type="email" name="email" />
             <input onChange={(e) => setpassword(e.target.value)} required placeholder='Your password' type="password" name="password" />
 
             <button className='btn text-lg bg-secondary text-text border-none' type='submit'>Register</button>
-          </form>
+          </form> */}
         </div>
         <div className="divider divider-primary text-text">OR</div>
         <div className="grid h-1/2 card bg-primary rounded-box place-items-center register_container">
-        <h1 className='text-4xl text-text'>Login</h1>
         <form onSubmit={(e) =>{login(e)}} className='flex flex-col gap-6 form'>
             <input onChange={(e) => setemail(e.target.value)} required placeholder='Your email' type="email" name="email" />
             <input onChange={(e) => setpassword(e.target.value)} required placeholder='Your password' type="password" name="password" />
@@ -84,4 +68,4 @@ Backendless.UserService.register( user ).then( res => {
   )
 }
 
-export default Register
+export default Login

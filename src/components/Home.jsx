@@ -2,12 +2,12 @@ import React from 'react'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 import { Link } from 'react-router-dom'
-function Home() {
+function Home({currentUser}) {
   return (
     <div className='main'>
       <div className='nav'>
 
-      <Navbar />
+      <Navbar currentUser={currentUser} />
       </div>
       <div className='w-screen h-screen bg-background text-text pt-24 text-center home_container main flex flex-col justify-around gap-12 items-center'>
         <h2 className='font-bold text-xl motto'>Bring your gaming to the <span className='text-accent'>next</span> level</h2>

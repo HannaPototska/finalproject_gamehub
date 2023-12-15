@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import Backendless from "backendless";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
+
+function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost, currentUser }) {
   const [user, setuser] = useState(); 
   const navigate = useNavigate()
 
@@ -46,7 +47,7 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
 
   return (
     <div>
-      <Navbar />
+      <Navbar currentUser={currentUser} />
 
       <main className="h-screen bg-background text-text text-center flex flex-col items-center gap-3 overflow-auto">
         {selectedGame && (
@@ -62,6 +63,8 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
         )}
 
         <h3 className="text-2xl">Tutorials</h3>
+      <Link to={"/createpost"}> <button className='btn border-none bg-accent text-text text-lg relative left-36'>New +</button> </Link>
+
         {tutorials.length > 0 &&
           tutorials.map((i, j) => (
             <div

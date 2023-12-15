@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import Backendless from 'backendless';
 import axios from 'axios';
 import SinglePost from './components/SinglePost';
+import Fake from './components/Fake';
 
 
 
@@ -53,12 +54,13 @@ function App() {
 
     <Routes>
       
-      <Route path='/' element={<Home />} />
-      <Route path='/community' element={<Community games={games} setselectedGame={setselectedGame} selectedGame={selectedGame} />} />
+      <Route path='/' element={<Home currentUser={currentUser} />} />
+      <Route path='/community' element={<Community games={games} setselectedGame={setselectedGame} selectedGame={selectedGame} currentUser={currentUser} />} />
       <Route path='/register' element={<Register currentUser={currentUser} />} />
       <Route path='/profile' element={<Profile currentUser={currentUser} setcurrentUser={setcurrentUser} />} />
       <Route path='/createpost' element={<CreatePost currentUser={currentUser} setcurrentUser={setcurrentUser} games={games} />} />
-      <Route path='/posts' element={<GamePosts tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame} setselectedPost={setselectedPost} />} />
+      <Route path='/posts' element={<GamePosts currentUser={currentUser} tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame} setselectedPost={setselectedPost} />} />
+      {/* <Route path='/posts/:title' element={<Fake />} /> */}
       <Route path='/singlepost' element={<SinglePost selectedPost={selectedPost} currentUser={currentUser}  />} />
 
 
