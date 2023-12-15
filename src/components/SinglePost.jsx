@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../layout/Navbar'
 import Footer from '../layout/Footer'
 import Backendless from 'backendless'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function SinglePost({selectedPost, currentUser}) {
 
     const [tutUser, settutUser] = useState()
     const [comments, setcomments] = useState()
-    
 
     useEffect(() => {
         Backendless.Data.of( "Users" ).findById(selectedPost.ownerId)
@@ -81,7 +80,7 @@ Backendless.Data.of( "comments" ).addRelation( parent, "userid", children )
     .catch(err => console.log(err))
 
     e.target.comment.value = ""
-  }
+  } 
 
   
   return (

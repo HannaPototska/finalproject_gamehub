@@ -196,3 +196,78 @@ textarea {
 }
 
 }
+
+@media only screen and (min-width: 768px) {
+    .nav {
+        width: 100%;
+    }
+    
+    .home_container {
+        padding: 100px;
+    }
+
+   .cont {
+        gap: 200px;
+        padding-right: 20px;
+   }
+
+    .main_cont {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap:  0 50px;
+        justify-content: center;
+    }
+
+    .post_container {
+        width: 70%;
+        border-radius: 30px;
+    }
+
+    .singlepost_main_container {
+        padding: 0 50px;
+    }
+    
+    .comments_container {
+        width: 70%;
+    }
+    
+    .container_of_comments {
+        align-items: center;
+    }
+    
+    .leave_comment_container {
+        justify-content: center;
+    }
+    
+    .form_container {
+        flex-direction: row;
+    }
+    
+    .posts_container {
+        width: 60%;
+    }
+
+    .createpost_form_container {
+        gap: 35px;
+    }
+
+    .createpost_form_container p {
+        font-size: 20px;
+    }
+
+    .createpost_form_container textarea {
+        font-size: 20px;
+    }
+
+    .register_container {
+        width: 70%;
+        align-self: center;
+        
+    }
+
+   .divider {
+    width: 50%;
+    align-self: center;
+}
+}

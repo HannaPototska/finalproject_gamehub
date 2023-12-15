@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-function Community({setselectedGame, games}) {
+function Community({setselectedGame, games, selectedGame}) {
   
   const navigate = useNavigate()
 

@@ -22,7 +22,7 @@ function GamePosts({ selectedGame, tutorials, settutorials, setselectedPost }) {
   }, []);
 
   useEffect(() => {
-    const title = selectedGame.title
+    const title = selectedGame? selectedGame.title: navigate("/community")
     const where = "game = '" + title + "'";
     var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(where);
     Backendless.Data.of("tutorials")

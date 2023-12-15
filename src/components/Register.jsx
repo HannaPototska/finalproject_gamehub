@@ -56,7 +56,7 @@ Backendless.UserService.register( user ).then( res => {
     <div className='h-screen'>
       <Navbar />
       <div>
-      <div className="flex flex-col bg-background w-full h-[571px] border-opacity-50">
+      <div className="flex flex-col bg-background w-full h-[768px] border-opacity-50">
         <div className="grid h-1/2 card bg-primary rounded-box place-items-center register_container">
           <form onSubmit={(e) =>{register(e)}} className='flex flex-col gap-6 form'>
             <input onChange={(e) => setnickname(e.target.value)} required placeholder='Your nickname' type="text" name="nickname" />
