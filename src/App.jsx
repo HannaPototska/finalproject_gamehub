@@ -59,7 +59,7 @@ function App() {
       <Route path='/register' element={<Register currentUser={currentUser} />} />
       <Route path='/profile' element={<Profile currentUser={currentUser} setcurrentUser={setcurrentUser} />} />
       <Route path='/createpost' element={<CreatePost currentUser={currentUser} setcurrentUser={setcurrentUser} games={games} />} />
-      <Route path='/posts' element={<GamePosts currentUser={currentUser} tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame} setselectedPost={setselectedPost} />} />
+      <Route path='/posts/:title' element={<GamePosts currentUser={currentUser} tutorials={tutorials} settutorials={settutorials} selectedGame={selectedGame} setselectedPost={setselectedPost} />} />
       {/* <Route path='/posts/:title' element={<Fake />} /> */}
       <Route path='/singlepost' element={<SinglePost selectedPost={selectedPost} currentUser={currentUser}  />} />
 

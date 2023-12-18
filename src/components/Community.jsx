@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-function Community({setselectedGame, games, currentUser}) {
+function Community({setselectedGame, games, currentUser,selectedGame}) {
   
   const navigate = useNavigate()
 
 function clickHandler(i) {
   setselectedGame(i)
-  navigate("/posts")
-  // navigate(`/posts/${selectedGame&&selectedGame.title}`)
+  // navigate("/posts")
+  navigate(`/posts/${i&&i.title}`)
 
 }
 

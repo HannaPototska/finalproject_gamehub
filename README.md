@@ -25,3 +25,4 @@ This project was created as final project during my Frontend Developement course
 - Free API
 
 
+
